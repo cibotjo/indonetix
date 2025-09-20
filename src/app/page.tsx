@@ -2,7 +2,6 @@
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { CheckCircle, Code, Database, Globe, Laptop, Smartphone, Server, Star, Users, ShoppingCart, Building, Search, Wrench, Monitor } from 'lucide-react'
 import Header from '@/components/layout/Header'
