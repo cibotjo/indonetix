@@ -9,7 +9,7 @@ interface HeroSectionProps {
 
 export default function HeroSection({ scrollToSection }: HeroSectionProps) {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16" aria-labelledby="hero-heading">
       {/* Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-black to-red-900"></div>
       <div className="absolute inset-0 bg-black/40"></div>
@@ -22,24 +22,24 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
       
       {/* Floating Icons */}
       <div className="absolute top-1/4 left-1/2 animate-float">
-        <Code className="w-8 h-8 text-blue-400 opacity-50" />
+        <Code className="w-8 h-8 text-blue-400 opacity-50" aria-hidden="true" />
       </div>
       <div className="absolute top-1/2 right-1/3 animate-float-delayed">
-        <Smartphone className="w-6 h-6 text-red-400 opacity-50" />
+        <Smartphone className="w-6 h-6 text-red-400 opacity-50" aria-hidden="true" />
       </div>
       <div className="absolute bottom-1/3 left-1/3 animate-float-slow">
-        <Globe className="w-7 h-7 text-blue-400 opacity-50" />
+        <Globe className="w-7 h-7 text-blue-400 opacity-50" aria-hidden="true" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 text-center">
         <div className="mb-8">
           <div className="inline-flex items-center px-4 py-2 bg-blue-600/20 border border-blue-500/30 rounded-full mb-6">
-            <Zap className="w-4 h-4 text-blue-400 mr-2" />
+            <Zap className="w-4 h-4 text-blue-400 mr-2" aria-hidden="true" />
             <span className="text-blue-400 text-sm font-medium">Solusi Digital Terdepan</span>
           </div>
         </div>
 
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+        <h1 id="hero-heading" className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
           Transformasi Digital untuk
           <span className="block bg-gradient-to-r from-blue-400 to-red-400 bg-clip-text text-transparent">
             Bisnis Modern

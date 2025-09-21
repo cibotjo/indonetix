@@ -2,6 +2,19 @@
   "name": "indonetix",
   "version": "0.1.0",
   "private": true,
+  "description": "Indonetix - Solusi Digital Terbaik untuk Bisnis Anda. Kami menyediakan layanan pengembangan website, aplikasi mobile, e-commerce, dan solusi IT lainnya dengan teknologi terkini.",
+  "keywords": [
+    "indonetix",
+    "web development",
+    "mobile app development",
+    "e-commerce",
+    "digital solution",
+    "IT consultant",
+    "SEO optimization",
+    "responsive design",
+    "custom software"
+  ],
+  "author": "Indonetix Team",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",

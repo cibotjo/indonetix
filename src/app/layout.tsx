@@ -14,21 +14,67 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Indonetix",
-  description: "Indonetix - Software development made easy",
-  keywords: ["Indonetix", "Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "AI development", "React"],
+  title: {
+    default: "Indonetix - Solusi Digital Terbaik untuk Bisnis Anda",
+    template: "%s | Indonetix"
+  },
+  description: "Indonetix menyediakan solusi digital komprehensif untuk bisnis Anda. Kami spesialis dalam pengembangan website, aplikasi mobile, e-commerce, dan layanan IT lainnya dengan teknologi terkini.",
+  keywords: [
+    "Indonetix", 
+    "pengembangan website", 
+    "aplikasi mobile", 
+    "solusi digital", 
+    "e-commerce", 
+    "pengembangan perangkat lunak", 
+    "IT consultant", 
+    "web development", 
+    "mobile app development", 
+    "digital solution",
+    "SEO optimization",
+    "responsive design",
+    "custom software"
+  ],
   authors: [{ name: "Indonetix Team" }],
+  creator: "Indonetix",
+  publisher: "Indonetix",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
-    title: "Indonetix",
-    description: "Software development made easy",
+    title: "Indonetix - Solusi Digital Terbaik untuk Bisnis Anda",
+    description: "Solusi digital komprehensif untuk bisnis Anda. Pengembangan website, aplikasi mobile, e-commerce, dan layanan IT dengan teknologi terkini.",
     url: "https://indonetix.com",
     siteName: "Indonetix",
+    locale: "id_ID",
     type: "website",
+    images: [
+      {
+        url: "https://indonetix.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Indonetix - Solusi Digital Terbaik"
+      }
+    ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Indonetix",
-    description: "Software development made easy",
+    title: "Indonetix - Solusi Digital Terbaik untuk Bisnis Anda",
+    description: "Solusi digital komprehensif untuk bisnis Anda. Pengembangan website, aplikasi mobile, e-commerce, dan layanan IT dengan teknologi terkini.",
+    images: ["https://indonetix.com/twitter-image.jpg"],
+  },
+  alternates: {
+    canonical: "https://indonetix.com"
+  },
+  verification: {
+    google: "your-google-verification-code-here",
   },
 };
 
@@ -38,7 +84,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="id" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >

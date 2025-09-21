@@ -44,14 +44,14 @@ export default function ProcessSection() {
   ]
 
   return (
-    <section id="process" className="py-20 px-4 bg-gradient-to-br from-blue-900/20 via-black to-red-900/20">
+    <section id="process" className="py-20 px-4 bg-gradient-to-br from-blue-900/20 via-black to-red-900/20" aria-labelledby="process-heading">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <div className="inline-flex items-center px-4 py-2 bg-blue-600/20 border border-blue-500/30 rounded-full mb-4">
-            <Clock className="w-4 h-4 text-blue-400 mr-2" />
+            <Clock className="w-4 h-4 text-blue-400 mr-2" aria-hidden="true" />
             <span className="text-blue-400 text-sm font-medium">Proses Kerja</span>
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h2 id="process-heading" className="text-4xl md:text-5xl font-bold text-white mb-4">
             Bagaimana Kami Bekerja
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -73,12 +73,12 @@ export default function ProcessSection() {
               const textClass = step.color === 'blue' ? 'text-blue-400' : 'text-red-400'
               
               return (
-                <div key={index} className="relative">
+                <article key={index} className="relative">
                   
                   <Card className={`bg-gray-900 border ${colorClass} hover:shadow-2xl transition-all duration-300 hover:scale-105 group ${isLeft ? 'lg:mr-8' : 'lg:ml-8 lg:mt-16'}`}>
                     <CardContent className="p-6">
                       <div className={`w-16 h-16 ${bgClass} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                        <Icon className="w-8 h-8 text-white" />
+                        <Icon className="w-8 h-8 text-white" aria-hidden="true" />
                       </div>
                       <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
                         {step.title}
@@ -87,12 +87,12 @@ export default function ProcessSection() {
                         {step.description}
                       </p>
                       <div className="mt-4 flex items-center text-sm text-gray-500">
-                        <CheckCircle className={`w-4 h-4 ${textClass} mr-2`} />
+                        <CheckCircle className={`w-4 h-4 ${textClass} mr-2`} aria-hidden="true" />
                         <span>Step {index + 1} of {processSteps.length}</span>
                       </div>
                     </CardContent>
                   </Card>
-                </div>
+                </article>
               )
             })}
           </div>

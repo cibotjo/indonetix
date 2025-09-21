@@ -19,15 +19,59 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-900 via-black to-red-900">
+      {/* Breadcrumbs Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Beranda",
+                "item": "https://indonetix.com/"
+              }
+            ]
+          })
+        }}
+      />
+      
+      {/* Local Business Schema Markup */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Indonetix",
+            "image": "https://indonetix.com/logo.png",
+            "telephone": "+62-21-1234-5678",
+            "email": "hello@indonetix.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Pasar Minggu Jakarta",
+              "addressLocality": "Jakarta Selatan",
+              "postalCode": "12940",
+              "addressCountry": "ID"
+            },
+            "url": "https://indonetix.com",
+            "priceRange": "$$$",
+            "openingHours": "Mo-Fr 09:00-18:00"
+          })
+        }}
+      />
+      
       <Header scrollToSection={scrollToSection} />
       
       <HeroSection scrollToSection={scrollToSection} />
 
       {/* Services Section */}
-      <section id="services" className="py-20 px-4 bg-black/50">
+      <section id="services" className="py-20 px-4 bg-black/50" aria-labelledby="services-heading">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 id="services-heading" className="text-4xl md:text-5xl font-bold text-white mb-4">
               Layanan Kami
             </h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
@@ -37,223 +81,235 @@ export default function Home() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Custom Web Development */}
-            <Card className="bg-gray-900 border-blue-500 hover:border-blue-400 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 group">
-              <CardHeader>
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Code className="w-8 h-8 text-white" />
-                </div>
-                <CardTitle className="text-2xl text-white group-hover:text-blue-400 transition-colors">
-                  Custom Web Development
-                </CardTitle>
-                <CardDescription className="text-gray-400">
-                  Pengembangan website tailored sesuai kebutuhan bisnis Anda
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Design custom dan unik</span>
-                  </li>
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Backend development scalable</span>
-                  </li>
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Integrasi API pihak ketiga</span>
-                  </li>
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Security & performance optimized</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+            <article>
+              <Card className="bg-gray-900 border-blue-500 hover:border-blue-400 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 group">
+                <CardHeader>
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Code className="w-8 h-8 text-white" />
+                  </div>
+                  <CardTitle className="text-2xl text-white group-hover:text-blue-400 transition-colors">
+                    Custom Web Development
+                  </CardTitle>
+                  <CardDescription className="text-gray-400">
+                    Pengembangan website tailored sesuai kebutuhan bisnis Anda
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3">
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Design custom dan unik</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Backend development scalable</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Integrasi API pihak ketiga</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Security & performance optimized</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </article>
 
             {/* E-Commerce Solutions */}
-            <Card className="bg-gray-900 border-red-500 hover:border-red-400 transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/20 group">
-              <CardHeader>
-                <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <ShoppingCart className="w-8 h-8 text-white" />
-                </div>
-                <CardTitle className="text-2xl text-white group-hover:text-red-400 transition-colors">
-                  E-Commerce Solutions
-                </CardTitle>
-                <CardDescription className="text-gray-400">
-                  Toko online profesional dengan fitur lengkap
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Payment gateway integration</span>
-                  </li>
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Inventory management system</span>
-                  </li>
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Customer dashboard</span>
-                  </li>
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Analytics & reporting</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+            <article>
+              <Card className="bg-gray-900 border-red-500 hover:border-red-400 transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/20 group">
+                <CardHeader>
+                  <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <ShoppingCart className="w-8 h-8 text-white" />
+                  </div>
+                  <CardTitle className="text-2xl text-white group-hover:text-red-400 transition-colors">
+                    E-Commerce Solutions
+                  </CardTitle>
+                  <CardDescription className="text-gray-400">
+                    Toko online profesional dengan fitur lengkap
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3">
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Payment gateway integration</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Inventory management system</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Customer dashboard</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Analytics & reporting</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </article>
 
             {/* Company Profile Website */}
-            <Card className="bg-gray-900 border-blue-500 hover:border-blue-400 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 group">
-              <CardHeader>
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Building className="w-8 h-8 text-white" />
-                </div>
-                <CardTitle className="text-2xl text-white group-hover:text-blue-400 transition-colors">
-                  Company Profile
-                </CardTitle>
-                <CardDescription className="text-gray-400">
-                  Website perusahaan yang profesional dan kredibel
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Corporate identity design</span>
-                  </li>
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Team & portfolio showcase</span>
-                  </li>
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Contact & inquiry forms</span>
-                  </li>
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Blog & news integration</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+            <article>
+              <Card className="bg-gray-900 border-blue-500 hover:border-blue-400 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 group">
+                <CardHeader>
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Building className="w-8 h-8 text-white" />
+                  </div>
+                  <CardTitle className="text-2xl text-white group-hover:text-blue-400 transition-colors">
+                    Company Profile
+                  </CardTitle>
+                  <CardDescription className="text-gray-400">
+                    Website perusahaan yang profesional dan kredibel
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3">
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Corporate identity design</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Team & portfolio showcase</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Contact & inquiry forms</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Blog & news integration</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </article>
 
             {/* Web Application */}
-            <Card className="bg-gray-900 border-red-500 hover:border-red-400 transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/20 group">
-              <CardHeader>
-                <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Monitor className="w-8 h-8 text-white" />
-                </div>
-                <CardTitle className="text-2xl text-white group-hover:text-red-400 transition-colors">
-                  Web Application
-                </CardTitle>
-                <CardDescription className="text-gray-400">
-                  Aplikasi web berbasis cloud yang powerful
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Real-time data processing</span>
-                  </li>
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">User management system</span>
-                  </li>
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Dashboard & reporting</span>
-                  </li>
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Multi-platform access</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+            <article>
+              <Card className="bg-gray-900 border-red-500 hover:border-red-400 transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/20 group">
+                <CardHeader>
+                  <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Monitor className="w-8 h-8 text-white" />
+                  </div>
+                  <CardTitle className="text-2xl text-white group-hover:text-red-400 transition-colors">
+                    Web Application
+                  </CardTitle>
+                  <CardDescription className="text-gray-400">
+                    Aplikasi web berbasis cloud yang powerful
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3">
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Real-time data processing</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">User management system</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Dashboard & reporting</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Multi-platform access</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </article>
 
             {/* SEO Setup & Optimization */}
-            <Card className="bg-gray-900 border-blue-500 hover:border-blue-400 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 group">
-              <CardHeader>
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Search className="w-8 h-8 text-white" />
-                </div>
-                <CardTitle className="text-2xl text-white group-hover:text-blue-400 transition-colors">
-                  SEO Setup & Optimization
-                </CardTitle>
-                <CardDescription className="text-gray-400">
-                  Optimasi website untuk ranking mesin pencari terbaik
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Keyword research & analysis</span>
-                  </li>
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">On-page optimization</span>
-                  </li>
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Technical SEO audit</span>
-                  </li>
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Performance monitoring</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+            <article>
+              <Card className="bg-gray-900 border-blue-500 hover:border-blue-400 transition-all duration-300 hover:shadow-2xl hover:shadow-blue-500/20 group">
+                <CardHeader>
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Search className="w-8 h-8 text-white" />
+                  </div>
+                  <CardTitle className="text-2xl text-white group-hover:text-blue-400 transition-colors">
+                    SEO Setup & Optimization
+                  </CardTitle>
+                  <CardDescription className="text-gray-400">
+                    Optimasi website untuk ranking mesin pencari terbaik
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3">
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Keyword research & analysis</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">On-page optimization</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Technical SEO audit</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-blue-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Performance monitoring</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </article>
 
             {/* Maintenance & Support */}
-            <Card className="bg-gray-900 border-red-500 hover:border-red-400 transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/20 group">
-              <CardHeader>
-                <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Wrench className="w-8 h-8 text-white" />
-                </div>
-                <CardTitle className="text-2xl text-white group-hover:text-red-400 transition-colors">
-                  Maintenance & Support
-                </CardTitle>
-                <CardDescription className="text-gray-400">
-                  Perawatan dan dukungan teknis berkelanjutan
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Regular updates & backup</span>
-                  </li>
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Security monitoring</span>
-                  </li>
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">24/7 technical support</span>
-                  </li>
-                  <li className="flex items-center text-gray-300">
-                    <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
-                    <span className="text-sm">Performance optimization</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+            <article>
+              <Card className="bg-gray-900 border-red-500 hover:border-red-400 transition-all duration-300 hover:shadow-2xl hover:shadow-red-500/20 group">
+                <CardHeader>
+                  <div className="w-16 h-16 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <Wrench className="w-8 h-8 text-white" />
+                  </div>
+                  <CardTitle className="text-2xl text-white group-hover:text-red-400 transition-colors">
+                    Maintenance & Support
+                  </CardTitle>
+                  <CardDescription className="text-gray-400">
+                    Perawatan dan dukungan teknis berkelanjutan
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="space-y-3">
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Regular updates & backup</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Security monitoring</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">24/7 technical support</span>
+                    </li>
+                    <li className="flex items-center text-gray-300">
+                      <CheckCircle className="w-5 h-5 text-red-400 mr-3 flex-shrink-0" />
+                      <span className="text-sm">Performance optimization</span>
+                    </li>
+                  </ul>
+                </CardContent>
+              </Card>
+            </article>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20 px-4 bg-gradient-to-r from-blue-900/50 to-red-900/50">
+      <section id="features" className="py-20 px-4 bg-gradient-to-r from-blue-900/50 to-red-900/50" aria-labelledby="features-heading">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+            <h2 id="features-heading" className="text-4xl md:text-5xl font-bold text-white mb-4">
               Mengapa Memilih Kami?
             </h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
@@ -308,9 +364,9 @@ export default function Home() {
       <ProcessSection />
 
       {/* CTA Section */}
-      <section id="contact" className="py-20 px-4 bg-gradient-to-r from-blue-900 to-red-900">
+      <section id="contact" className="py-20 px-4 bg-gradient-to-r from-blue-900 to-red-900" aria-labelledby="cta-heading">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 id="cta-heading" className="text-4xl md:text-5xl font-bold text-white mb-6">
             Siap Untuk Memulai Proyek Anda?
           </h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
