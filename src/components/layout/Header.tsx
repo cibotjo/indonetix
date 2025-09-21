@@ -17,13 +17,13 @@ export default function Header({ scrollToSection }: HeaderProps) {
           <div className="flex items-center">
             <div className="flex-shrink-0 flex items-center cursor-pointer" onClick={() => scrollToSection('home')}>
               <img 
-                src="/assets/logo/logo-indonetix.png" 
+                src="/assets/logo/logo-indonetix-header.png" 
                 alt="Indonetix Logo" 
                 className="h-10 w-auto hover:scale-110 transition-transform duration-300"
               />
-              <span className="ml-3 text-xl font-bold text-white hover:text-blue-400 transition-colors">
+              {/* <span className="ml-3 text-xl font-bold text-white hover:text-blue-400 transition-colors">
                 INDONETIX
-              </span>
+              </span> */}
             </div>
           </div>
 

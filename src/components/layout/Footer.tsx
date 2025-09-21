@@ -14,11 +14,11 @@ export default function Footer() {
             <div>
               <div className="flex items-center mb-6">
                 <img 
-                  src="/assets/logo/logo-indonetix.png" 
+                  src="/assets/logo/logo-indonetix-header.png" 
                   alt="Indonetix Logo" 
                   className="h-10 w-auto"
                 />
-                <span className="ml-3 text-xl font-bold text-white">INDONETIX</span>
+                {/* <span className="ml-3 text-xl font-bold text-white">INDONETIX</span> */}
               </div>
               <p className="text-gray-400 mb-6 leading-relaxed">
                 Perusahaan digital terdepan yang menyediakan solusi website dan IT comprehensive untuk bisnis modern di era digital.
