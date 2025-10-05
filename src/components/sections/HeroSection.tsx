@@ -2,42 +2,54 @@
 
 import { useState, useEffect } from 'react'
 import { Button } from '@/components/ui/button'
-import { CheckCircle, ArrowRight, Users, Award, Zap, ChevronRight, Star, TrendingUp, Shield, Clock } from 'lucide-react'
+import { CheckCircle, ArrowRight, Users, Award, Zap, ChevronRight } from 'lucide-react'
 
 interface HeroSectionProps {
   scrollToSection: (sectionId: string) => void
 }
 
 export default function HeroSection({ scrollToSection }: HeroSectionProps) {
-  const [activeFeature, setActiveFeature] = useState(0)
+  const [currentSlide, setCurrentSlide] = useState(0)
   
-  const features = [
-   
+  const slides = [
+    {
+      title: "E-Commerce Solutions",
+      image: "/assets/images/ecommerce-showcase.jpg"
+    },
+    {
+      title: "Corporate Website",
+      image: "/assets/images/corporate-showcase.jpg"
+    },
+    {
+      title: "Mobile Applications",
+      image: "/assets/images/mobile-showcase.jpg"
+    }
   ]
   
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveFeature((prev) => (prev + 1) % features.length)
-    }, 3000)
+      setCurrentSlide((prev) => (prev + 1) % slides.length)
+    }, 4000)
     
     return () => clearInterval(interval)
-  }, [features.length])
+  }, [slides.length])
 
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 bg-gradient-to-br from-[#f0f9ff] to-[#e1f1ff]" aria-labelledby="hero-heading">
-      {/* Clean Background Elements */}
+      {/* Elegant Background Elements */}
       <div className="absolute inset-0 z-0">
-        {/* Subtle geometric pattern */}
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `radial-gradient(circle at 15px 15px, #41729f 1px, transparent 0)`,
-            backgroundSize: '40px 40px'
+        {/* Subtle wave patterns */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-full h-full" style={{
+            backgroundImage: `radial-gradient(ellipse at center, #41729f 0%, transparent 70%)`,
+            backgroundSize: '800px 800px',
+            backgroundPosition: 'center top'
           }}></div>
         </div>
         
         {/* Soft gradient overlays */}
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-r from-transparent to-white/30"></div>
-        <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-t from-transparent to-white/20"></div>
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-r from-transparent to-white/20"></div>
+        <div className="absolute bottom-0 left-0 w-1/3 h-1/2 bg-gradient-to-t from-transparent to-white/10"></div>
       </div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
@@ -105,95 +117,54 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
             </div>
           </div>
           
-          {/* Visual Element - Clean Dashboard Preview */}
-          <div className="relative">
-            <div className="relative rounded-2xl shadow-xl overflow-hidden border border-[#41729f]/20 bg-white">
+          {/* Visual Element - Clean Slide Presentation */}
+          <div className="relative flex justify-center">
+            <div className="relative rounded-2xl shadow-2xl overflow-hidden border border-[#41729f]/20 bg-white/90 backdrop-blur-sm max-w-md w-full">
               <div className="p-6">
                 <div className="flex justify-between items-center mb-6">
-                  <h3 className="text-xl font-bold text-[#001f3f]">Performance Dashboard</h3>
-                  <div className="text-xs bg-[#41729f]/10 text-[#001f3f] px-3 py-1 rounded-full font-medium flex items-center gap-1">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    Live Data
+                  <h3 className="text-xl font-bold text-[#001f3f]">
+                    Solusi Bisnis Kami
+                  </h3>
+                  <div className="text-xs bg-[#41729f]/10 text-[#001f3f] px-3 py-1 rounded-full font-medium">
+                    Showcase
                   </div>
                 </div>
                 
-                <div className="grid grid-cols-3 gap-4 mb-6">
-                  {[
-                    { value: "24%", label: "Conversion Rate", color: "text-[#001f3f]" },
-                    { value: "+12%", label: "Growth", color: "text-green-600" },
-                    { value: "98%", label: "Uptime", color: "text-blue-600" }
-                  ].map((item, index) => (
+                {/* Slide Carousel */}
+                <div className="relative h-80 rounded-xl overflow-hidden">
+                  {slides.map((slide, index) => (
                     <div 
                       key={index}
-                      className="bg-white border border-[#41729f]/10 p-4 rounded-xl shadow-sm transition-all duration-300 hover:shadow-md"
+                      className={`absolute inset-0 transition-opacity duration-1000 flex flex-col items-center justify-center p-8 ${
+                        index === currentSlide ? 'opacity-100' : 'opacity-0'
+                      }`}
                     >
-                      <div className={`text-2xl font-bold ${item.color}`}>{item.value}</div>
-                      <div className="text-xs text-[#001f3f]/70 mt-1">{item.label}</div>
+                      {/* Placeholder for business image */}
+                      <div className="bg-gradient-to-br from-[#001f3f]/10 to-[#41729f]/10 h-full w-full rounded-lg flex items-center justify-center">
+                        <div className="text-center">
+                          <div className="text-5xl mb-4">💼</div>
+                          <div className="text-xl font-bold text-[#001f3f]">{slide.title}</div>
+                        </div>
+                      </div>
                     </div>
                   ))}
                 </div>
                 
-                <div className="bg-white rounded-xl border border-[#41729f]/10 p-4 mb-4">
-                  <div className="flex justify-between mb-3">
-                    <span className="text-sm font-semibold text-[#001f3f]">Traffic Sources</span>
-                    <span className="text-sm text-[#001f3f]/70">Last 30 days</span>
-                  </div>
-                  <div className="space-y-3">
-                    {[
-                      { name: "Organic Search", value: 75, color: "bg-[#001f3f]" },
-                      { name: "Direct", value: 45, color: "bg-[#41729f]" },
-                      { name: "Social Media", value: 30, color: "bg-[#e1f1ff]" }
-                    ].map((item, index) => (
-                      <div key={index} className="flex items-center">
-                        <div className="w-24 text-xs text-[#001f3f]/80">{item.name}</div>
-                        <div className="flex-1 ml-2">
-                          <div className="h-2 bg-[#e1f1ff] rounded-full overflow-hidden">
-                            <div 
-                              className={`h-2 ${item.color} rounded-full`}
-                              style={{ width: `${item.value}%` }}
-                            />
-                          </div>
-                        </div>
-                        <div className="w-10 text-right text-xs text-[#001f3f]/80 font-medium">{item.value}%</div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-                
-                <div className="flex justify-between">
-                  <button className="text-xs bg-gradient-to-r from-[#001f3f] to-[#41729f] text-white px-4 py-2 rounded-lg font-medium hover:opacity-90 transition-opacity shadow-sm">
-                    View Full Report
-                  </button>
-                  <button className="text-xs bg-white text-[#001f3f] border border-[#41729f]/30 px-4 py-2 rounded-lg font-medium hover:bg-[#e1f1ff]/30 transition-colors">
-                    Export Data
-                  </button>
+                {/* Navigation Dots */}
+                <div className="flex justify-center mt-6 space-x-2">
+                  {slides.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentSlide(index)}
+                      className={`w-2 h-2 rounded-full transition-all ${
+                        index === currentSlide 
+                          ? 'bg-[#001f3f] w-6' 
+                          : 'bg-[#41729f]/30'
+                      }`}
+                    />
+                  ))}
                 </div>
               </div>
-            </div>
-            
-            {/* Interactive Feature Cards */}
-            <div className="absolute -bottom-16 left-0 right-0 flex justify-center gap-4">
-              {features.map((feature, index) => (
-                <div
-                  key={index}
-                  className={`bg-white rounded-xl p-4 shadow-lg border border-[#41729f]/20 cursor-pointer transition-all duration-300 ${
-                    activeFeature === index ? 'scale-105 shadow-xl border-[#41729f]/50' : 'opacity-90'
-                  }`}
-                  onClick={() => setActiveFeature(index)}
-                >
-                  <div className="flex items-center gap-3">
-                    <div className={`w-10 h-10 rounded-full bg-gradient-to-r from-[#001f3f] to-[#41729f] flex items-center justify-center text-white ${
-                      activeFeature === index ? 'animate-pulse' : ''
-                    }`}>
-                      {feature.icon}
-                    </div>
-                    <div>
-                      <div className="text-sm font-semibold text-[#001f3f]">{feature.title}</div>
-                      <div className="text-xs text-[#001f3f]/70">{feature.description}</div>
-                    </div>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
