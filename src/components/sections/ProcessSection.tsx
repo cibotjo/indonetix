@@ -23,7 +23,7 @@ type Step = {
   color: string
 }
 
-export default function ProcessSection(): JSX.Element {
+export default function ProcessSection() {
   const processSteps: Step[] = [
     { icon: FileText, title: "Konsultasi", description: "Diskusi kebutuhan bisnis Anda", color: "from-[#001f3f] to-[#41729f]" },
     { icon: Users, title: "Desain", description: "Pembuatan desain UI/UX", color: "from-[#41729f] to-[#28a745]" },
